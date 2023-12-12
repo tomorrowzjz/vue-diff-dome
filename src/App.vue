@@ -1,7 +1,11 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <div v-if="isShow">testshow</div>
+    <div>Vue logo</div>
+    <div>
+      <HelloWorld msg="HelloWorld" @testDiff="testDiff"/>
+    </div>
+    <div v-if="isShow">btn</div>
   </div>
 </template>
 
@@ -10,8 +14,18 @@ import HelloWorld from './components/HelloWorld.vue'
 
 export default {
   name: 'App',
+  data(){
+    return {
+      isShow:false
+    }
+  },
   components: {
     HelloWorld
+  },
+  methods:{
+    testDiff(){
+      this.isShow = !this.isShow
+    }
   }
 }
 </script>
